@@ -27,54 +27,54 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
-import hmd.example.firebaseprojectstudyenglish.admin.AdminActivity;
-import hmd.example.firebaseprojectstudyenglish.database.Database;
-import hmd.example.firebaseprojectstudyenglish.database.DatabaseAccess;
-import hmd.example.firebaseprojectstudyenglish.singletonpattern.MessageObject;
+//import hmd.example.firebaseprojectstudyenglish.admin.AdminActivity;
+//import hmd.example.firebaseprojectstudyenglish.database.Database;
+//import hmd.example.firebaseprojectstudyenglish.database.DatabaseAccess;
+//import hmd.example.firebaseprojectstudyenglish.singletonpattern.MessageObject;
 import hmd.example.firebaseprojectstudyenglish.taikhoan.User;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private final MessageObject messageObject = MessageObject.getInstance();
+//    private final MessageObject messageObject = MessageObject.getInstance();
     final  String DATABASE_NAME = "HocNgonNgu.db";
     Boolean doubleBack = false;
     SQLiteDatabase database;
-    DatabaseAccess DB;
+ //   DatabaseAccess DB;
     User user;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main);
 
-        DB = DatabaseAccess.getInstance(getApplicationContext());
-        LayUser();
+//        DB = DatabaseAccess.getInstance(getApplicationContext());
+        //LayUser();
 
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Mọi thắc mắc, hỗ trợ xin vui lòng gửi mail về (developers@gmail.com)", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+ //       FloatingActionButton fab = findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Mọi thắc mắc, hỗ trợ xin vui lòng gửi mail về (developers@gmail.com)", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+//        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+ //       NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home)
-                .setOpenableLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+//        mAppBarConfiguration = new AppBarConfiguration.Builder(
+//                R.id.nav_home)
+//                .setOpenableLayout(drawer)
+//                .build();
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+//        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+//        NavigationUI.setupWithNavController(navigationView, navController);
     }
 
     @Override
@@ -89,14 +89,14 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.action_admin:
                 if (user.getRole()==0) {
-                    Intent intent = new Intent(MainActivity.this, AdminActivity.class);
-                    startActivity(intent);
+ //                   Intent intent = new Intent(MainActivity.this, AdminActivity.class);
+ //                   startActivity(intent);
                 }
                 else {
-                    messageObject.ShowDialogMessage(Gravity.CENTER,
-                            MainActivity.this,
-                            "KHÔNG THỂ TRUY CẬP!!Tài khoản của bạn không phải Quản Lý!!",
-                            0);
+ //                   messageObject.ShowDialogMessage(Gravity.CENTER,
+//                            MainActivity.this,
+//                            "KHÔNG THỂ TRUY CẬP!!Tài khoản của bạn không phải Quản Lý!!",
+//                            0);
                 }
                 break;
         }
@@ -122,28 +122,28 @@ public class MainActivity extends AppCompatActivity {
         }, 2000);
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
+  //  @Override
+ //   public boolean onSupportNavigateUp() {
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+//        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+//                || super.onSupportNavigateUp();
+ //   }
 
 
-    public void LayUser()
-    {
-        database = Database.initDatabase(MainActivity.this, DATABASE_NAME);
-        Cursor cursor = database.rawQuery("SELECT * FROM User WHERE ID_User = ?",new String[]{String.valueOf(DB.iduser)});
-        cursor.moveToNext();
-        String Iduser = cursor.getString(0);
-        String HoTen = cursor.getString(1);
-        int Point = cursor.getInt(2);
-        String Email = cursor.getString(3);
-        String SDT = cursor.getString(4);
-        int Role = cursor.getInt(5);
-        user = new User(Iduser,HoTen,Point,Email,SDT,Role);
-        cursor.close();
-    }
+//    public void LayUser()
+//    {
+//        database = Database.initDatabase(MainActivity.this, DATABASE_NAME);
+//        Cursor cursor = database.rawQuery("SELECT * FROM User WHERE ID_User = ?",new String[]{String.valueOf(DB.iduser)});
+//        cursor.moveToNext();
+//        String Iduser = cursor.getString(0);
+//        String HoTen = cursor.getString(1);
+//        int Point = cursor.getInt(2);
+//        String Email = cursor.getString(3);
+//        String SDT = cursor.getString(4);
+//        int Role = cursor.getInt(5);
+//        user = new User(Iduser,HoTen,Point,Email,SDT,Role);
+//        cursor.close();
+//    }
 
 
 }

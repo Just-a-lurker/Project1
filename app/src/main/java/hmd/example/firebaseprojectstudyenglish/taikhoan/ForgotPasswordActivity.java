@@ -17,7 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 import hmd.example.firebaseprojectstudyenglish.R;
-import hmd.example.firebaseprojectstudyenglish.singletonpattern.MessageObject;
+//import hmd.example.firebaseprojectstudyenglish.singletonpattern.MessageObject;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 
@@ -25,15 +25,15 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     private Button btnResetP;
 
     FirebaseAuth mAuth;
-    private MessageObject messageObject = MessageObject.getInstance();
+ //   private MessageObject messageObject = MessageObject.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forgot_password);
+    //    setContentView(R.layout.activity_forgot_password);
 
-        EmailF = (EditText) findViewById(R.id.etEmailForgot);
-        btnResetP = (Button) findViewById(R.id.btnResetPass);
+     //   EmailF = (EditText) findViewById(R.id.etEmailForgot);
+     //   btnResetP = (Button) findViewById(R.id.btnResetPass);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -68,10 +68,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else {
-                    messageObject.ShowDialogMessage(Gravity.CENTER,
-                            ForgotPasswordActivity.this,
-                            "KHÔNG THÀNH CÔNG!Hãy kiểm tra lại Email của bạn và thử lại!",
-                            0);
+        //            messageObject.ShowDialogMessage(Gravity.CENTER,
+        //                    ForgotPasswordActivity.this,
+//                            "KHÔNG THÀNH CÔNG!Hãy kiểm tra lại Email của bạn và thử lại!",
+//                            0);
                 }
 
             }
