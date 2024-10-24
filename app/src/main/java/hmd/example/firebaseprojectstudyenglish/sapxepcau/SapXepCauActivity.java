@@ -41,7 +41,11 @@ public class SapXepCauActivity extends AppCompatActivity {
         imgback = findViewById(R.id.imgVBackSXC);
         boTuVungs = new ArrayList<>();
         AddArrayBTV();
+<<<<<<< Updated upstream
         adapter = new BoHocTapAdapter(SapXepCauActivity.this,R.layout.row_sapxepcau,boTuVungs);
+=======
+        adapter = new BoHocTapAdapter(SapXepCauActivity.this,R.layout.row_bosapxepcau,boTuVungs);
+>>>>>>> Stashed changes
         botuvungs.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
