@@ -131,6 +131,7 @@ public class ListeningActivity extends AppCompatActivity {
         }
 
     }
+
     public void Anhxa(){
         txtscore= findViewById(R.id.txtscoreLN);
         txtquestcount= findViewById(R.id.txtquestcountLN);
@@ -242,6 +243,7 @@ public class ListeningActivity extends AppCompatActivity {
 
 
     }
+
     public void checkans(){
         btnconfirm.setEnabled(false);
         if(btnop1.isChecked()){
@@ -275,6 +277,7 @@ public class ListeningActivity extends AppCompatActivity {
 
         txtscore.setText("Score: "+score+"");
     }
+
     public void showanswer(){
         if(1==answer) {
             btnop1.setBackground(this.getResources().getDrawable(R.drawable.button_2));
@@ -305,6 +308,7 @@ public class ListeningActivity extends AppCompatActivity {
 
         }
     }
+
     private void doStart( )  {
         if(this.mediaPlayer.isPlaying()) {
             //this.mediaPlayer.stop();
@@ -313,6 +317,7 @@ public class ListeningActivity extends AppCompatActivity {
         }
         else {this.mediaPlayer.start();}
     }
+
     private void doStop()  {
         if(mediaPlayer.isPlaying()) {
             mediaPlayer.stop();

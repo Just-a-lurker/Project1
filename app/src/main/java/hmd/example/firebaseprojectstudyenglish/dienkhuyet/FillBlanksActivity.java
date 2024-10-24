@@ -30,12 +30,14 @@ public class FillBlanksActivity extends AppCompatActivity {
     DatabaseAccess DB;
     TextView txtscoreDK,txtquestcountDK,txtquestionDK,txttimeDK,txtGoiy;
     EditText edtAnswerDK;
+
     Button btnconfirm, btnQuit;
     private ArrayList<CauDienKhuyet> cauDienKhuyets;
     int questioncurrent = 0;
     int questiontrue = 0;
     String answer;
-    int score=0;
+    int score=0
+            ;
     int idbo;
 
     User user;
@@ -93,6 +95,7 @@ public class FillBlanksActivity extends AppCompatActivity {
                     countDownTimer.start();
                 }
             });
+
             btnQuit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -105,6 +108,7 @@ public class FillBlanksActivity extends AppCompatActivity {
         }
 
     }
+
     public void LayUser()
     {
         database = Database.initDatabase(FillBlanksActivity.this, DATABASE_NAME);
@@ -157,11 +161,13 @@ public class FillBlanksActivity extends AppCompatActivity {
         }
 
     }
+
     public void showanswer(){
         edtAnswerDK.setText(answer);
         edtAnswerDK.setTextColor(Color.GREEN);
         edtAnswerDK.clearFocus();
     }
+
     public void checkAnswer()
     {
         btnconfirm.setEnabled(false);
@@ -193,6 +199,7 @@ public class FillBlanksActivity extends AppCompatActivity {
         shake.setInterpolator(new CycleInterpolator(7));
         return shake;
     }
+
     public void Anhxa(){
             txtscoreDK = findViewById(R.id.txtscoreDK);
             txtquestcountDK = findViewById(R.id.txtquestcountDK);

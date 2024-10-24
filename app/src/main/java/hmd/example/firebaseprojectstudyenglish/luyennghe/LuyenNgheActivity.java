@@ -73,6 +73,7 @@ public class LuyenNgheActivity extends AppCompatActivity {
             }
         });
     }
+
     private void AddArrayBLN(){
         database= Database.initDatabase(LuyenNgheActivity.this,DATABASE_NAME);
         Cursor cursor=database.rawQuery("SELECT * FROM BoCauHoi",null);

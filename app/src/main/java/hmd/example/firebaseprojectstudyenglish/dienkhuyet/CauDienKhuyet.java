@@ -12,6 +12,7 @@ public class CauDienKhuyet implements Serializable {
     public CauDienKhuyet(int idcau, int idbo, String noidung, String dapan, String goiy) {
         this.idcau = idcau;
         this.idbo = idbo;
+
         this.noidung = noidung;
         this.dapan = dapan;
         this.goiy = goiy;

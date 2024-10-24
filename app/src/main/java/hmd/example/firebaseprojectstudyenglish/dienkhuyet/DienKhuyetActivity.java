@@ -75,6 +75,7 @@ public class DienKhuyetActivity extends AppCompatActivity {
             }
         });
     }
+
     private void AddArrayBTN(){
         database= Database.initDatabase(DienKhuyetActivity.this,DATABASE_NAME);
         Cursor cursor=database.rawQuery("SELECT * FROM BoCauHoi",null);
