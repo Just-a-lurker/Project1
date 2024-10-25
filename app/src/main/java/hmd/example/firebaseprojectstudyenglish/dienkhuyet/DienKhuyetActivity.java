@@ -32,7 +32,6 @@ public class DienKhuyetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dien_khuyet);
-
         listView= findViewById(R.id.lvdienkhuyet);
         imgback = findViewById(R.id.imgVBackDK);
         boHocTapArrayList =new ArrayList<>();
@@ -51,7 +50,6 @@ public class DienKhuyetActivity extends AppCompatActivity {
                 finish();
             }
         });
-
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
