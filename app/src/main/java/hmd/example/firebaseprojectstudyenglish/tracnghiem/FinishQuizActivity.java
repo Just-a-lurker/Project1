@@ -1,4 +1,4 @@
-package hmd.example.firebaseprojectstudyenglish.luyennghe;
+package hmd.example.firebaseprojectstudyenglish.tracnghiem;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,7 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import hmd.example.firebaseprojectstudyenglish.MainActivity;
 import hmd.example.firebaseprojectstudyenglish.R;
 
-public class FinishQuizLSActivity extends AppCompatActivity {
+public class FinishQuizActivity extends AppCompatActivity {
+
     TextView txtcongrats,txtfinalqtrue,txtfinaltext, txtfinalScore;
     Button btnReturn;
     ImageView imgtrophy;
@@ -25,10 +26,12 @@ public class FinishQuizLSActivity extends AppCompatActivity {
     int questiontrue;
     int qcount;
     Animation smalltobig;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finish_hoctap);
+
         smalltobig = AnimationUtils.loadAnimation(this, R.anim.smalltobig);
         Intent intent=getIntent();
         score=intent.getIntExtra("score",0);
@@ -36,6 +39,8 @@ public class FinishQuizLSActivity extends AppCompatActivity {
         qcount = intent.getIntExtra("qcount",0);
 
         Anhxa();
+
+
         if(questiontrue==4){
             txtfinalqtrue.setText(questiontrue + " / " + qcount);
             txtcongrats.setText("Your final result: ");
@@ -51,11 +56,11 @@ public class FinishQuizLSActivity extends AppCompatActivity {
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FinishQuizLSActivity.this, MainActivity.class));
+                startActivity(new Intent(FinishQuizActivity.this, MainActivity.class));
             }
         });
-    }
 
+    }
     public void Anhxa(){
         txtfinalScore=findViewById(R.id.tvPoints);
         txtcongrats=findViewById(R.id.txtcongrats);
