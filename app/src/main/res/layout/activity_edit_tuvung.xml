@@ -10,20 +10,22 @@
     android:paddingRight="16dp"
     android:paddingBottom="16dp">
 
-
     <ImageView
         android:id="@+id/imgEditTV"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="256dp"
+        android:layout_marginLeft="256dp"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="80dp"
         android:src="@drawable/ic_check"
         android:tint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imgBackEditTV"
         app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="UseAppTint" />
+
 
     <TextView
         android:id="@+id/textView"
@@ -45,10 +47,12 @@
         android:layout_height="60dp"
 
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="80dp"
         android:src="@drawable/ic_back"
         android:tint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="UseAppTint" />
 
     <ScrollView
@@ -70,7 +74,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.414"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@tools:sample/avatars" />
@@ -79,13 +82,12 @@
                 android:id="@+id/btnChonHinhEditTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:backgroundTint="#fece2f"
                 android:fontFamily="@font/bungee"
                 android:text="Chọn hình"
                 android:textColor="#000"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.373"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imgHinhEditTV" />
 
@@ -132,10 +134,8 @@
                 android:layout_marginTop="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtAudioEditTV"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toBottomOf="@+id/edtAudioEditTV" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

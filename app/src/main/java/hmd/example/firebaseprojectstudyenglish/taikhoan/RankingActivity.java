@@ -2,6 +2,7 @@ package hmd.example.firebaseprojectstudyenglish.taikhoan;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import hmd.example.firebaseprojectstudyenglish.MainActivity;
+import hmd.example.firebaseprojectstudyenglish.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -20,9 +23,6 @@ import com.google.firebase.database.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
-import hmd.example.firebaseprojectstudyenglish.MainActivity;
-import hmd.example.firebaseprojectstudyenglish.R;
 
 public class RankingActivity extends AppCompatActivity {
 

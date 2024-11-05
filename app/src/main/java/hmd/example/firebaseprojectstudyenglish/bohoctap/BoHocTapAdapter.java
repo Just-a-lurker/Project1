@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.util.List;
-
 import hmd.example.firebaseprojectstudyenglish.R;
+
+import java.util.List;
 
 public class BoHocTapAdapter extends BaseAdapter {
     private Context context;
@@ -48,7 +48,7 @@ public class BoHocTapAdapter extends BaseAdapter {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(layout,null);
-//            holder.txtTenBo = (TextView) convertView.findViewById(R.id.tvTenBo);
+            holder.txtTenBo = (TextView) convertView.findViewById(R.id.tvTenBo);
             convertView.setTag(holder);
         }else {
             holder = (ViewHolder) convertView.getTag();

@@ -26,21 +26,21 @@ import com.google.firebase.database.FirebaseDatabase;
 import org.jetbrains.annotations.NotNull;
 
 import hmd.example.firebaseprojectstudyenglish.MainActivity;
-//import hmd.example.firebaseprojectstudyenglish.admin.AdminActivity;
-//import hmd.example.firebaseprojectstudyenglish.database.DatabaseAccess;
-// hmd.example.firebaseprojectstudyenglish.notify.MyService;
-//import hmd.example.firebaseprojectstudyenglish.singletonpattern.MessageObject;
+import hmd.example.firebaseprojectstudyenglish.admin.AdminActivity;
+import hmd.example.firebaseprojectstudyenglish.database.DatabaseAccess;
+import hmd.example.firebaseprojectstudyenglish.notify.MyService;
+import hmd.example.firebaseprojectstudyenglish.singletonpattern.MessageObject;
 
 public class LoginActivity extends AppCompatActivity {
 
     Button btnDangnhap;
     TextView tvDangky, tvforgotPassword;
     EditText edttaikhoan, edtmatkhau;
-//    DatabaseAccess DB;
+    DatabaseAccess DB;
     FirebaseDatabase rootNode; //f_instanse
     DatabaseReference userref; //f_db
     private FirebaseAuth mAuth;
- //   private final MessageObject messageObject = MessageObject.getInstance();
+    private final MessageObject messageObject = MessageObject.getInstance();
 
     public static LoginActivity instance;
 
@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         AnhXa();
- //       DB = DatabaseAccess.getInstance(getApplicationContext());
+        DB = DatabaseAccess.getInstance(getApplicationContext());
         mAuth = FirebaseAuth.getInstance();
 
         //Đăng nhập thành công chuyển sang MainActivity
@@ -65,21 +65,21 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 // validations for input email and password // check th trong
-//                if (TextUtils.isEmpty(email)) {
-////                    messageObject.ShowDialogMessage(Gravity.CENTER,
-//                            LoginActivity.this,
-//                            "Hãy nhập Email của bạn!!",
-//                            0);
-//                    return;
-//                }
-//
-//                if (TextUtils.isEmpty(matkhau)) {
-// //                   messageObject.ShowDialogMessage(Gravity.CENTER,
-//                            LoginActivity.this,
-//                            "Hãy nhập mật khẩu của bạn!!",
-//                            0);
-//                    return;
-//                }
+                if (TextUtils.isEmpty(email)) {
+                    messageObject.ShowDialogMessage(Gravity.CENTER,
+                            LoginActivity.this,
+                            "Hãy nhập Email của bạn!!",
+                            0);
+                    return;
+                }
+
+                if (TextUtils.isEmpty(matkhau)) {
+                    messageObject.ShowDialogMessage(Gravity.CENTER,
+                            LoginActivity.this,
+                            "Hãy nhập mật khẩu của bạn!!",
+                            0);
+                    return;
+                }
 
                 // signin existing user
 
@@ -98,21 +98,21 @@ public class LoginActivity extends AppCompatActivity {
 
                                             //notify
                                             Intent intent;
-                                      //      intent = new Intent(LoginActivity.this, MyService.class);
-                                      //      startService(intent);
+                                            intent = new Intent(LoginActivity.this, MyService.class);
+                                            startService(intent);
 
-                                      //      DB.iduser = mAuth.getCurrentUser().getUid();
-                                      //      DB.CapNhatUser(DB.iduser);
+                                            DB.iduser = mAuth.getCurrentUser().getUid();
+                                            DB.CapNhatUser(DB.iduser);
                                             rootNode = FirebaseDatabase.getInstance();
-                                     //       userref = rootNode.getReference("User").child(DB.iduser);
+                                            userref = rootNode.getReference("User").child(DB.iduser);
                                             userref.child("role").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                                                 @Override
                                                 public void onComplete(@NonNull @NotNull Task<DataSnapshot> task) {
                                                     int roleValue = Integer.parseInt(task.getResult().getValue().toString());
 
-                                                    Intent intent = null;
+                                                    Intent intent;
                                                     if (roleValue == 0) {
-                                       //                 intent = new Intent(LoginActivity.this, AdminActivity.class);
+                                                        intent = new Intent(LoginActivity.this, AdminActivity.class);
                                                     }
                                                     else {
                                                         intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -125,10 +125,10 @@ public class LoginActivity extends AppCompatActivity {
                                         }
                                         else {
                                             // sign-in failed
-                                    //        messageObject.ShowDialogMessage(Gravity.CENTER,
-                                     //               LoginActivity.this,
-                                    //                "Sai Email hoặc mật khẩu!!",
-                                    //                0);
+                                            messageObject.ShowDialogMessage(Gravity.CENTER,
+                                                    LoginActivity.this,
+                                                    "Sai Email hoặc mật khẩu!!",
+                                                    0);
                                         }
                                     }
                                 });
@@ -163,10 +163,10 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-//    public void clickStopService() {
-//        Intent intent=new Intent(this,MyService.class);
-//        stopService(intent);
-//    }
+    public void clickStopService() {
+        Intent intent=new Intent(this,MyService.class);
+        stopService(intent);
+    }
 
     @Override
     protected void onDestroy() {

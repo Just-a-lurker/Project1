@@ -9,11 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import hmd.example.firebaseprojectstudyenglish.R;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-
-import hmd.example.firebaseprojectstudyenglish.R;
 
 public class AdapterRank extends RecyclerView.Adapter<AdapterRank.MyViewHolder> {
     Context context;

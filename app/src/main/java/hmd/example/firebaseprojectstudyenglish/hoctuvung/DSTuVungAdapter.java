@@ -10,9 +10,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.List;
-
 import hmd.example.firebaseprojectstudyenglish.R;
+
+import java.util.List;
 
 public class DSTuVungAdapter  extends BaseAdapter {
     private Context context;

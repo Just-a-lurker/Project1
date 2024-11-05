@@ -15,6 +15,7 @@ public class MediaPlayerUtils {
 
     public static final String LOG_TAG= "MediaPlayerTutorial";
 
+
     // String videoURL = "https://raw.githubusercontent.com/o7planning/webexamples/master/_testdatas_/yodel.mp3";
     public static void playURLMedia(Context context, MediaPlayer mediaPlayer, String videoURL)  {
         try {

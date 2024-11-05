@@ -1,7 +1,6 @@
 package hmd.example.firebaseprojectstudyenglish.notify;
 
 
-import static hmd.example.firebaseprojectstudyenglish.notify.MyApplication.CHANNEL_ID;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
@@ -9,14 +8,19 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 import android.widget.RemoteViews;
+import hmd.example.firebaseprojectstudyenglish.R;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
-import hmd.example.firebaseprojectstudyenglish.R;
+import hmd.example.firebaseprojectstudyenglish.MainActivity;
 import hmd.example.firebaseprojectstudyenglish.taikhoan.LoginActivity;
+
+import static hmd.example.firebaseprojectstudyenglish.notify.MyApplication.CHANNEL_ID;
 
 public class MyService extends Service {
 
@@ -72,7 +76,7 @@ public class MyService extends Service {
         LoginActivity activity = LoginActivity.instance;
         if (activity != null) {
             // we are calling here activity's method
-           // activity.clickStopService();
+            activity.clickStopService();
         }
 
     }

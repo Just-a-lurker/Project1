@@ -3,11 +3,13 @@ package hmd.example.firebaseprojectstudyenglish.admin.tuvung;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,13 +21,14 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import hmd.example.firebaseprojectstudyenglish.R;
+import hmd.example.firebaseprojectstudyenglish.database.Database;
+import hmd.example.firebaseprojectstudyenglish.database.DatabaseAccess;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
-
-import hmd.example.firebaseprojectstudyenglish.R;
-import hmd.example.firebaseprojectstudyenglish.database.Database;
 
 public class AddTuVungActivity extends AppCompatActivity {
 

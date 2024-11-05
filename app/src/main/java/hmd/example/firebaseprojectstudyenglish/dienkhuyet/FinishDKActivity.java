@@ -55,7 +55,6 @@ public class FinishDKActivity extends AppCompatActivity {
             }
         });
     }
-
     public void Anhxa(){
         txtfinalScore=findViewById(R.id.tvPoints);
         txtcongrats=findViewById(R.id.txtcongrats);

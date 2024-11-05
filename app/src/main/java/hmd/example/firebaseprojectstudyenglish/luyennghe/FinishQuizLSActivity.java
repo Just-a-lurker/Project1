@@ -36,6 +36,8 @@ public class FinishQuizLSActivity extends AppCompatActivity {
         qcount = intent.getIntExtra("qcount",0);
 
         Anhxa();
+
+
         if(questiontrue==4){
             txtfinalqtrue.setText(questiontrue + " / " + qcount);
             txtcongrats.setText("Your final result: ");
@@ -54,8 +56,8 @@ public class FinishQuizLSActivity extends AppCompatActivity {
                 startActivity(new Intent(FinishQuizLSActivity.this, MainActivity.class));
             }
         });
-    }
 
+    }
     public void Anhxa(){
         txtfinalScore=findViewById(R.id.tvPoints);
         txtcongrats=findViewById(R.id.txtcongrats);

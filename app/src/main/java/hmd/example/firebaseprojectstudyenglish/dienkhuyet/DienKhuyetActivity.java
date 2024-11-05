@@ -11,13 +11,13 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-
 import hmd.example.firebaseprojectstudyenglish.MainActivity;
 import hmd.example.firebaseprojectstudyenglish.R;
 import hmd.example.firebaseprojectstudyenglish.bohoctap.BoHocTap;
 import hmd.example.firebaseprojectstudyenglish.bohoctap.BoHocTapAdapter;
 import hmd.example.firebaseprojectstudyenglish.database.Database;
+
+import java.util.ArrayList;
 
 public class DienKhuyetActivity extends AppCompatActivity {
 
@@ -32,6 +32,7 @@ public class DienKhuyetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dien_khuyet);
+
         listView= findViewById(R.id.lvdienkhuyet);
         imgback = findViewById(R.id.imgVBackDK);
         boHocTapArrayList =new ArrayList<>();
@@ -50,6 +51,7 @@ public class DienKhuyetActivity extends AppCompatActivity {
                 finish();
             }
         });
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -73,7 +75,6 @@ public class DienKhuyetActivity extends AppCompatActivity {
             }
         });
     }
-
     private void AddArrayBTN(){
         database= Database.initDatabase(DienKhuyetActivity.this,DATABASE_NAME);
         Cursor cursor=database.rawQuery("SELECT * FROM BoCauHoi",null);

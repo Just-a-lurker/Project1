@@ -11,13 +11,13 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-
 import hmd.example.firebaseprojectstudyenglish.MainActivity;
 import hmd.example.firebaseprojectstudyenglish.R;
 import hmd.example.firebaseprojectstudyenglish.bohoctap.BoHocTap;
 import hmd.example.firebaseprojectstudyenglish.bohoctap.BoHocTapAdapter;
 import hmd.example.firebaseprojectstudyenglish.database.Database;
+
+import java.util.ArrayList;
 
 public class LuyenNgheActivity extends AppCompatActivity {
     ListView listView;
@@ -73,7 +73,6 @@ public class LuyenNgheActivity extends AppCompatActivity {
             }
         });
     }
-
     private void AddArrayBLN(){
         database= Database.initDatabase(LuyenNgheActivity.this,DATABASE_NAME);
         Cursor cursor=database.rawQuery("SELECT * FROM BoCauHoi",null);

@@ -9,6 +9,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -20,12 +21,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-
 import hmd.example.firebaseprojectstudyenglish.R;
 import hmd.example.firebaseprojectstudyenglish.database.Database;
 import hmd.example.firebaseprojectstudyenglish.database.DatabaseAccess;
 import hmd.example.firebaseprojectstudyenglish.taikhoan.User;
+
+import java.util.ArrayList;
 
 public class ListeningActivity extends AppCompatActivity {
     final  String DATABASE_NAME = "HocNgonNgu.db";
@@ -131,7 +132,6 @@ public class ListeningActivity extends AppCompatActivity {
         }
 
     }
-
     public void Anhxa(){
         txtscore= findViewById(R.id.txtscoreLN);
         txtquestcount= findViewById(R.id.txtquestcountLN);
@@ -243,7 +243,6 @@ public class ListeningActivity extends AppCompatActivity {
 
 
     }
-
     public void checkans(){
         btnconfirm.setEnabled(false);
         if(btnop1.isChecked()){
@@ -277,7 +276,6 @@ public class ListeningActivity extends AppCompatActivity {
 
         txtscore.setText("Score: "+score+"");
     }
-
     public void showanswer(){
         if(1==answer) {
             btnop1.setBackground(this.getResources().getDrawable(R.drawable.button_2));
@@ -308,7 +306,6 @@ public class ListeningActivity extends AppCompatActivity {
 
         }
     }
-
     private void doStart( )  {
         if(this.mediaPlayer.isPlaying()) {
             //this.mediaPlayer.stop();
@@ -317,7 +314,6 @@ public class ListeningActivity extends AppCompatActivity {
         }
         else {this.mediaPlayer.start();}
     }
-
     private void doStop()  {
         if(mediaPlayer.isPlaying()) {
             mediaPlayer.stop();

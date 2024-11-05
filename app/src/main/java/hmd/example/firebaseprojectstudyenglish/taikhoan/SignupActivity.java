@@ -14,8 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import hmd.example.firebaseprojectstudyenglish.R;
-//import hmd.example.firebaseprojectstudyenglish.database.DatabaseAccess;
-//import hmd.example.firebaseprojectstudyenglish.singletonpattern.MessageObject;
+import hmd.example.firebaseprojectstudyenglish.database.DatabaseAccess;
+import hmd.example.firebaseprojectstudyenglish.singletonpattern.MessageObject;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -33,8 +33,8 @@ public class SignupActivity extends AppCompatActivity {
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
-//    DatabaseAccess DB;
-//    private MessageObject messageObject = MessageObject.getInstance();
+    DatabaseAccess DB;
+    private MessageObject messageObject = MessageObject.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class SignupActivity extends AppCompatActivity {
         AnhXa();
         mAuth = FirebaseAuth.getInstance();
 
-//        DB =  DatabaseAccess.getInstance(getApplicationContext());
+        DB =  DatabaseAccess.getInstance(getApplicationContext());
         tvDangNhap = (TextView) findViewById(R.id.textView_login);
         tvDangNhap.setOnClickListener(new View.OnClickListener() {
 
@@ -64,16 +64,16 @@ public class SignupActivity extends AppCompatActivity {
 
                 if(hoten.equals("")||email.equals("")||sdt.equals("")||matkhau.equals(""))
                 {
-//                    messageObject.ShowDialogMessage(Gravity.CENTER,
-//                            SignupActivity.this,
-//                            "Vui lòng điền đầy đủ thông tin của bạn!!",
-//                            0);
+                    messageObject.ShowDialogMessage(Gravity.CENTER,
+                            SignupActivity.this,
+                            "Vui lòng điền đầy đủ thông tin của bạn!!",
+                            0);
                 }
                 else{
                     if(matkhau.equals(xacnhanmatkhau)){
 
-                    //    Boolean kiemtrataikhoan = DB.checktaikhoan(email);
-                        //if(kiemtrataikhoan == false)
+                        Boolean kiemtrataikhoan = DB.checktaikhoan(email);
+                        if(kiemtrataikhoan == false)
                         {
                             mAuth.createUserWithEmailAndPassword(email, matkhau).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 
@@ -81,10 +81,9 @@ public class SignupActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<AuthResult> task)
                                         {
                                             if (task.isSuccessful()) {
-                            //                    DB.open();
-                             //                   Boolean insert = DB.insertData(mAuth.getCurrentUser().getUid(),hoten,email,sdt,0, 1);
-                               //                 DB.close();
-                                 //               btnSignUp.setText(insert.toString());
+                                                DB.open();
+                                                Boolean insert = DB.insertData(mAuth.getCurrentUser().getUid(),hoten,email,sdt,0, 1);
+                                                DB.close();
                                                 Toast.makeText(SignupActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
 
                                                 // if the user created intent to login activity
@@ -97,28 +96,28 @@ public class SignupActivity extends AppCompatActivity {
                                                 startActivity(intent);
                                             }
                                             else {
-                                //                messageObject.ShowDialogMessage(Gravity.CENTER,
-//                                                        SignupActivity.this,
-//                                                        "Đăng ký thất bại!!",
-//                                                        0);
+                                                messageObject.ShowDialogMessage(Gravity.CENTER,
+                                                        SignupActivity.this,
+                                                        "Đăng ký thất bại!!",
+                                                        0);
                                             }
                                         }
                                     });
                         }
-                      //  else{
-                      //      messageObject.ShowDialogMessage(Gravity.CENTER,
-//                                    SignupActivity.this,
-//                                    "Email đã được đăng ký!!",
-//                                    0);
-//                        }
+                        else{
+                            messageObject.ShowDialogMessage(Gravity.CENTER,
+                                    SignupActivity.this,
+                                    "Email đã được đăng ký!!",
+                                    0);
+                        }
 
 
                     }
                     else{
-//                        messageObject.ShowDialogMessage(Gravity.CENTER,
-//                                SignupActivity.this,
-//                                "Xác nhận lại, mật khẩu không trùng khớp!!",
-//                                0);
+                        messageObject.ShowDialogMessage(Gravity.CENTER,
+                                SignupActivity.this,
+                                "Xác nhận lại, mật khẩu không trùng khớp!!",
+                                0);
                         edtMatKhau.setText("");
                         edtXacNhan.setText("");
                     }

@@ -24,14 +24,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import hmd.example.firebaseprojectstudyenglish.R;
 import hmd.example.firebaseprojectstudyenglish.database.Database;
 import hmd.example.firebaseprojectstudyenglish.database.DatabaseAccess;
 import hmd.example.firebaseprojectstudyenglish.luyennghe.MediaPlayerUtils;
 import hmd.example.firebaseprojectstudyenglish.taikhoan.User;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class WordMattersActivity extends AppCompatActivity {
 

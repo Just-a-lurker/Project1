@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import hmd.example.firebaseprojectstudyenglish.R;
+
+import java.util.ArrayList;
 
 public class AdminAdapter extends BaseAdapter {
     private Context context;
