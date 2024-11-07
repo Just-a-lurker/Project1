@@ -7,6 +7,10 @@ plugins {
 android {
     compileSdk 34
 
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def apikeychat = properties.getProperty('api_key_bot')
+    def apikeyfb = properties.getProperty('api_key_bot')
     defaultConfig {
         applicationId "hmd.example.firebaseprojectstudyenglish"
         minSdk 21
@@ -15,6 +19,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String" , "apikeychat" ,  apikeychat
+        buildConfigField "String" , "apikeyfb" ,  apikeyfb
     }
 
     buildTypes {
@@ -31,6 +37,7 @@ android {
     buildFeatures {
         compose = true
         viewBinding true
+        buildConfig true
     }
 
     composeOptions {

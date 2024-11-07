@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.ai.client.generativeai.GenerativeModel
 import com.google.ai.client.generativeai.type.content
+import hmd.example.firebaseprojectstudyenglish.BuildConfig
 import kotlinx.coroutines.launch
 
 class ChatViewModel : ViewModel() {
@@ -16,7 +17,7 @@ class ChatViewModel : ViewModel() {
 
     val generativeModel : GenerativeModel = GenerativeModel(
         modelName = "gemini-pro",
-        apiKey = Constants.apiKey
+        apiKey = BuildConfig.apikeychat
     )
 
     fun sendMessage(question : String){
