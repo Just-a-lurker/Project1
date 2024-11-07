@@ -27,10 +27,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import hmd.example.firebaseprojectstudyenglish.ChatBot.MainActivityChat;
 import hmd.example.firebaseprojectstudyenglish.admin.AdminActivity;
 import hmd.example.firebaseprojectstudyenglish.database.Database;
 import hmd.example.firebaseprojectstudyenglish.database.DatabaseAccess;
 import hmd.example.firebaseprojectstudyenglish.singletonpattern.MessageObject;
+import hmd.example.firebaseprojectstudyenglish.taikhoan.LoginActivity;
 import hmd.example.firebaseprojectstudyenglish.taikhoan.User;
 
 public class MainActivity extends AppCompatActivity {
@@ -59,8 +61,9 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Mọi thắc mắc, hỗ trợ xin vui lòng gửi mail về (developers@gmail.com)", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Mọi thắc mắc, hỗ trợ xin vui lòng gửi mail về (developers@gmail.com)", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+                startActivity(new Intent(MainActivity.this, MainActivityChat.class));
             }
         });
 
