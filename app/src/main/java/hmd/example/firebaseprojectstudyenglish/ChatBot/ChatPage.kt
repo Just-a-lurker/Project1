@@ -1,7 +1,9 @@
 package hmd.example.firebaseprojectstudyenglish.ChatBot
 
 
+import android.app.Activity
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,6 +17,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -30,6 +33,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -40,11 +44,11 @@ import hmd.example.firebaseprojectstudyenglish.ChatBot.theme.Purple80
 import hmd.example.firebaseprojectstudyenglish.R
 
 @Composable
-fun ChatPage(modifier: Modifier = Modifier,viewModel: ChatViewModel) {
+fun ChatPage(modifier: Modifier = Modifier, viewModel: ChatViewModel) {
     Column(
         modifier = modifier
     ) {
-        AppHeader()
+        AppHeaderWithBackButton()
         MessageList(
             modifier = Modifier.weight(1f),
             messageList = viewModel.messageList
@@ -53,6 +57,36 @@ fun ChatPage(modifier: Modifier = Modifier,viewModel: ChatViewModel) {
             onMessageSend = {
                 viewModel.sendMessage(it)
             }
+        )
+    }
+}
+
+@Composable
+fun AppHeaderWithBackButton() {
+    val context = LocalContext.current as? Activity
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(MaterialTheme.colorScheme.primary)
+            .padding(8.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Icon(
+            imageVector = Icons.Default.ArrowBack,
+            contentDescription = "Back",
+            tint = Color.White,
+            modifier = Modifier
+                .size(24.dp)
+                .clickable {
+                    context?.finish() // Finish the activity and go back
+                }
+        )
+        Text(
+            modifier = Modifier.padding(start = 16.dp),
+            text = "Easy Bot",
+            color = Color.White,
+            fontSize = 22.sp
         )
     }
 }

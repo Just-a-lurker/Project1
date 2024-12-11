@@ -14,7 +14,7 @@ public class Database {
     public static SQLiteDatabase initDatabase(Activity activity, String databaseName){
         try {
             String outFileName = activity.getApplicationInfo().dataDir + "/ /" + databaseName;
-            Log.e("Huynh_outFileName",outFileName);
+            //Log.e("BTL_outFileName",outFileName);
             File f = new File(outFileName);
             if(!f.exists()) {
                 InputStream e = activity.getAssets().open(databaseName);
