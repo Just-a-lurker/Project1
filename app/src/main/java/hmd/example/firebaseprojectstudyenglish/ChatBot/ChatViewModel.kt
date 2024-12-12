@@ -38,7 +38,7 @@ class ChatViewModel : ViewModel() {
                 messageList.add(MessageModel(response.text.toString(),"model"))
             }catch (e : Exception){
                 messageList.removeLast()
-                messageList.add(MessageModel("Error : "+e.message.toString(),"model"))
+                messageList.add(MessageModel("Your question is unclear, try to ask again","model"))
             }
 
 

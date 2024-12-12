@@ -84,7 +84,7 @@ fun AppHeaderWithBackButton() {
         )
         Text(
             modifier = Modifier.padding(start = 16.dp),
-            text = "Easy Bot",
+            text = "Chatbox",
             color = Color.White,
             fontSize = 22.sp
         )
